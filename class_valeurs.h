@@ -21,13 +21,13 @@ class Valeurs
 {
 private :
 Int_t ref_peak; ///< Energy of reference peak
-Double_t [2] A_ref; ///< A coefficients for the reference peak
-Double_t [4] Q2_ref; ///< Q2 coefficients for the reference peak
-Double_t [4] Q4_ref; ///< Q4 coefficients for the reference peak
-Double_t [3] F2; ///< F2 coefficients for the peak of interest
-Double_t [3] F4; ///< F4 coefficients for the peak of interest
-Double_t [4] Q2; ///< Q2 coefficients for the peak of interest
-Double_t [4] Q4; ///< Q4 coefficients for the peak of interest
+vector<Double_t> A_ref; ///< A coefficients for the reference peak
+vector<Double_t> Q2_ref; ///< Q2 coefficients for the reference peak
+vector<Double_t> Q4_ref; ///< Q4 coefficients for the reference peak
+vector<Double_t> F2; ///< F2 coefficients for the peak of interest
+vector<Double_t> F4; ///< F4 coefficients for the peak of interest
+vector<Double_t> Q2; ///< Q2 coefficients for the peak of interest
+vector<Double_t> Q4; ///< Q4 coefficients for the peak of interest
 
 public :
 /// \brief Default constructor
@@ -37,6 +37,9 @@ Valeurs(Int_t ref, Double_t A2, Double_t A4, Double_t Q2_ref_0, Double_t Q2_ref_
 /// \brief Default destructor
 ~Valeurs();
 
+/// \return ref_peak
+Int_t get_ref() const;
+
 /// \return A2 coefficient 
 Double_t A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
 
@@ -44,10 +47,10 @@ Double_t A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_
 Double_t A4(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
 
 /// \return delta2 +/- coefficient
-Double_t [2] Delta_2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
+vector<Double_t> Delta_2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
 
 /// \return delta4 +/- coefficient
-Double_t [2] Delta_4(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
+vector<Double_t> Delta_4(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270) const;
 
 };
 

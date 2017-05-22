@@ -87,8 +87,8 @@ int main(int argc, char *argv[])
 	    {
 	      vector<Double_t> W;
 	      vector<Double_t> W_ref;
-	      vector<Double_t> delta2;
-	      vector<Double_t> delta4;
+	      vector<vector<Double_t> > delta2;
+	      vector<vector<Double_t> > delta4;
 	      
 	      W=peak_list[peak];
 	      W_ref=peak_list[ref];
@@ -97,7 +97,11 @@ int main(int argc, char *argv[])
 	      delta2=valeurs_list[peak].Delta_2(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3]);
 	      delta4=valeurs_list[peak].Delta_4(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3]);
 
-	      output_delta<<"peak "<<peak<<" ref "<<ref<<" delta2 +/- "<<delta2[0]<<" "<<delta2[1]<<" delta4 +/- "<<delta4[0]<<" "<<delta4[1]<<endl;
+	      output_delta<<"peak "<<peak<<" ref "<<ref<<endl;
+	      for(Int_t i=0; i<4; i++)
+		{
+		  output_delta<<"couple detector "<<i<<" delta2 +/- "<<delta2[i][0]<<" "<<delta2[i][1]<<" delta4 +/- "<<delta4[i][0]<<" "<<delta4[i][1]<<endl;
+		}
 	    }
 
 	}

@@ -9,6 +9,7 @@ int main(int argc, char *argv[])
 {
   map<int, Valeurs> valeurs_list;
   map<int, vector<Double_t> > peak_list; 
+  map<int, vector<Double_t> > Err_list;
   ifstream input_peak;
   input_peak.open("peak_ref.txt");
   string ligne;
@@ -45,7 +46,9 @@ int main(int argc, char *argv[])
 	{
 	  istringstream iss (ligne);
 	  Double_t W0, W90, W180, W270;
+	  Double_t ErrW0, ErrW90, ErrW180, ErrW270;
 	  vector<Double_t> W;
+	  vector<Double_t> ErrW;
 	  TString ref;
 	  Int_t peak;
 	  
@@ -61,6 +64,15 @@ int main(int argc, char *argv[])
 	  peak_list[peak]=W; 
 	  
 	  getline(input_w, ligne);
+	  istringstream Erriss (ligne);
+	  Erriss>>ref>>ErrW0>>ErrW90>>ErrW180>>ErrW270;
+	  ErrW.push_back(ErrW0);
+	  ErrW.push_back(ErrW90);
+	  ErrW.push_back(ErrW180);
+	  ErrW.push_back(ErrW270);
+	  
+	  Err_list[peak]=ErrW;
+	  
 	}
     }
   else{cout<<"input_w not open"<<endl;}
@@ -86,21 +98,27 @@ int main(int argc, char *argv[])
 	  else
 	    {
 	      vector<Double_t> W;
+	      vector<Double_t> ErrW;
 	      vector<Double_t> W_ref;
+	      vector<Double_t> ErrW_ref;
 	      vector<vector<Double_t> > delta2;
+	      vector<vector<Double_t> > ErrDelta2;
 	      vector<vector<Double_t> > delta4;
+	      vector<vector<Double_t> > ErrDelta4;
 	      
 	      W=peak_list[peak];
+	      ErrW=Err_list[peak];
 	      W_ref=peak_list[ref];
-	     
+	      ErrW_ref=Err_list[ref];
 	      
-	      delta2=valeurs_list[peak].Delta_2(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3]);
-	      delta4=valeurs_list[peak].Delta_4(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3]);
+	      delta2=valeurs_list[peak].Delta_2(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3], ErrW_ref[0], ErrW_ref[1], ErrW_ref[2], ErrW_ref[3], ErrW[0], ErrW[1], ErrW[2], ErrW[3], ErrDelta2);
+	      delta4=valeurs_list[peak].Delta_4(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3], ErrW_ref[0], ErrW_ref[1], ErrW_ref[2], ErrW_ref[3], ErrW[0], ErrW[1], ErrW[2], ErrW[3], ErrDelta4);
 
 	      output_delta<<"peak "<<peak<<" ref "<<ref<<endl;
 	      for(Int_t i=0; i<4; i++)
 		{
 		  output_delta<<"couple detector "<<i<<" delta2 +/- "<<delta2[i][0]<<" "<<delta2[i][1]<<" delta4 +/- "<<delta4[i][0]<<" "<<delta4[i][1]<<endl;
+		  output_delta<<"Erreurs delta2 +/- "<<ErrDelta2[i][0]<<" "<<ErrDelta2[i][1]<<" delta4 +/- "<<ErrDelta4[i][0]<<" "<<ErrDelta4[i][1]<<endl;
 		}
 	    }
 

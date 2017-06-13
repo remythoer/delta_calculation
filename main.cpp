@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
 	      W_ref=peak_list[ref];
 	      ErrW_ref=Err_list[ref];
 	      
+	     	      
 	      delta2=valeurs_list[peak].Delta_2(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3], ErrW_ref[0], ErrW_ref[1], ErrW_ref[2], ErrW_ref[3], ErrW[0], ErrW[1], ErrW[2], ErrW[3], ErrDelta2);
 	      delta4=valeurs_list[peak].Delta_4(W_ref[0], W_ref[1], W_ref[2], W_ref[3], W[0], W[1], W[2], W[3], ErrW_ref[0], ErrW_ref[1], ErrW_ref[2], ErrW_ref[3], ErrW[0], ErrW[1], ErrW[2], ErrW[3], ErrDelta4);
 

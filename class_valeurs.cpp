@@ -228,7 +228,7 @@ vector<vector<Double_t> > Valeurs::Delta_2(Double_t W0_ref, Double_t W90_ref, Do
       delta[i].push_back((-F2[1]-sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))/(F2[2]-A2[i]));
       ErrDelta2.push_back(vector<Double_t>(0));
       ErrDelta2[i].push_back(sqrt(SqErrA2[i]*((delta[i][0]+((F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))*((delta[i][0]+((F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))));
-      ErrDelta2[i].push_back(sqrt(SqErrA2[i]*((delta[i][0]+(-(F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))*((delta[i][0]+((F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))));
+      ErrDelta2[i].push_back(sqrt(SqErrA2[i]*((delta[i][1]+(-(F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))*((delta[i][1]+(-(F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))));
     }
   return delta;
 }
@@ -245,7 +245,7 @@ vector<vector<Double_t> > Valeurs::Delta_4(Double_t W0_ref, Double_t W90_ref, Do
       delta[i].push_back((-F4[1]-sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))/(F4[2]-A4[i]));
       ErrDelta4.push_back(vector<Double_t>(0));
       ErrDelta4[i].push_back(sqrt(SqErrA4[i]*((delta[i][0]+((F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))*((delta[i][0]+((F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))));
-      ErrDelta4[i].push_back(sqrt(SqErrA4[i]*((delta[i][0]+(-(F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))*((delta[i][0]+((F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))));
+      ErrDelta4[i].push_back(sqrt(SqErrA4[i]*((delta[i][1]+(-(F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))*((delta[i][1]+(-(F4[0]-A4[i]+F4[2]-A4[i])/(2*sqrt(F4[1]*F4[1]-(F4[2]-A4[i])*(F4[0]-A4[i])))))/(F4[2]-A4[i]))));
     }
   return delta;
 }

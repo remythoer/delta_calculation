@@ -67,7 +67,7 @@ vector <Double_t> Valeurs::A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_r
   SqErrR2.push_back(9*ErrW180*ErrW180/64+ErrW90*ErrW90);
   SqErrR2.push_back(9*ErrW180*ErrW180/64+ErrW270*ErrW270);
   SqErrR2.push_back(9*ErrW0*ErrW0/64+ErrW270*ErrW270);
-
+  
   R2_ref.push_back((1-W0_ref)*3/8+(W90_ref-1));
   R2_ref.push_back((1-W180_ref)*3/8+(W90_ref-1));
   R2_ref.push_back((1-W180_ref)*3/8+(W270_ref-1));
@@ -83,20 +83,20 @@ vector <Double_t> Valeurs::A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_r
   R4.push_back(0.5*(1-W180)-(W270-1));
   R4.push_back(0.5*(1-W0)-(W270-1));
 
-  SqErrR4.push_back(ErrW0*ErrW0/4-ErrW90*ErrW90);
-  SqErrR4.push_back(ErrW180*ErrW180/4-ErrW90*ErrW90);
-  SqErrR4.push_back(ErrW180*ErrW180/4-ErrW270*ErrW270);
-  SqErrR4.push_back(ErrW0*ErrW0/4-ErrW270*ErrW270);
+  SqErrR4.push_back(ErrW0*ErrW0/4+ErrW90*ErrW90);
+  SqErrR4.push_back(ErrW180*ErrW180/4+ErrW90*ErrW90);
+  SqErrR4.push_back(ErrW180*ErrW180/4+ErrW270*ErrW270);
+  SqErrR4.push_back(ErrW0*ErrW0/4+ErrW270*ErrW270);
 
   R4_ref.push_back(0.5*(1-W0_ref)-(W90_ref-1));
   R4_ref.push_back(0.5*(1-W180_ref)-(W90_ref-1));
   R4_ref.push_back(0.5*(1-W180_ref)-(W270_ref-1));
   R4_ref.push_back(0.5*(1-W0_ref)-(W270_ref-1));
 
-  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4-ErrW90_ref*ErrW90_ref);
-  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4-ErrW90_ref*ErrW90_ref);
-  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4-ErrW270_ref*ErrW270_ref);
-  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4-ErrW270_ref*ErrW270_ref);
+  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4+ErrW90_ref*ErrW90_ref);
+  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4+ErrW90_ref*ErrW90_ref);
+  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4+ErrW270_ref*ErrW270_ref);
+  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4+ErrW270_ref*ErrW270_ref);
 
   E2.push_back((Q2[1]-Q2[0])/Q2[0]);
   E2.push_back((Q2[1]-Q2[2])/Q2[2]);
@@ -171,20 +171,20 @@ vector <Double_t> Valeurs::A4(Double_t W0_ref, Double_t W90_ref, Double_t W180_r
   R4.push_back(0.5*(1-W180)-(W270-1));
   R4.push_back(0.5*(1-W0)-(W270-1));
 
-  SqErrR4.push_back(ErrW0*ErrW0/4-ErrW90*ErrW90);
-  SqErrR4.push_back(ErrW180*ErrW180/4-ErrW90*ErrW90);
-  SqErrR4.push_back(ErrW180*ErrW180/4-ErrW270*ErrW270);
-  SqErrR4.push_back(ErrW0*ErrW0/4-ErrW270*ErrW270);
+  SqErrR4.push_back(ErrW0*ErrW0/4+ErrW90*ErrW90);
+  SqErrR4.push_back(ErrW180*ErrW180/4+ErrW90*ErrW90);
+  SqErrR4.push_back(ErrW180*ErrW180/4+ErrW270*ErrW270);
+  SqErrR4.push_back(ErrW0*ErrW0/4+ErrW270*ErrW270);
 
   R4_ref.push_back(0.5*(1-W0_ref)-(W90_ref-1));
   R4_ref.push_back(0.5*(1-W180_ref)-(W90_ref-1));
   R4_ref.push_back(0.5*(1-W180_ref)-(W270_ref-1));
   R4_ref.push_back(0.5*(1-W0_ref)-(W270_ref-1));
 
-  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4-ErrW90_ref*ErrW90_ref);
-  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4-ErrW90_ref*ErrW90_ref);
-  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4-ErrW270_ref*ErrW270_ref);
-  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4-ErrW270_ref*ErrW270_ref);
+  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4+ErrW90_ref*ErrW90_ref);
+  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4+ErrW90_ref*ErrW90_ref);
+  SqErrR4_ref.push_back(ErrW180_ref*ErrW180_ref/4+ErrW270_ref*ErrW270_ref);
+  SqErrR4_ref.push_back(ErrW0_ref*ErrW0_ref/4+ErrW270_ref*ErrW270_ref);
 
   E2.push_back((Q2[1]-Q2[0])/Q2[0]);
   E2.push_back((Q2[1]-Q2[2])/Q2[2]);

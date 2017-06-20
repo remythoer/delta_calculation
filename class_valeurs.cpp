@@ -122,7 +122,8 @@ vector <Double_t> Valeurs::A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_r
     {
       Double_t B=(-49/8-21*E4_ref[i]/8-28*E2_ref[i]/8)/(-49/8-21*E4[i]/8-28*E2[i]/8);
       A2.push_back(A_ref[0]*(R2[i]*(7+3*E4[i])+R4[i]*3*E4[i])*B/(R2_ref[i]*(7+3*E4_ref[i])+R4_ref[i]*3*E4_ref[i]));
-      SqErrA2.push_back((A_ref[0]*A_ref[0]*B*B*(SqErrR2[i]*(7+3*E4[i])*(7+3*E4[i])+SqErrR4[i]*9*E4[i]*E4[i])-A2[i]*A2[i]*((7+3*E4_ref[i])*(7+3*E4_ref[i])*SqErrR2_ref[i]+9*E4_ref[i]*E4_ref[i]*SqErrR4_ref[i]))/((R2_ref[i]*(7+3*E4_ref[i])+R4_ref[i]*3*E4_ref[i])*(R2_ref[i]*(7+3*E4_ref[i])+R4_ref[i]*3*E4_ref[i])));
+      SqErrA2.push_back((A_ref[0]*A_ref[0]*B*B*(SqErrR2[i]*(7+3*E4[i])*(7+3*E4[i])+SqErrR4[i]*9*E4[i]*E4[i])+A2[i]*A2[i]*((7+3*E4_ref[i])*(7+3*E4_ref[i])*SqErrR2_ref[i]+9*E4_ref[i]*E4_ref[i]*SqErrR4_ref[i]))/((R2_ref[i]*(7+3*E4_ref[i])+R4_ref[i]*3*E4_ref[i])*(R2_ref[i]*(7+3*E4_ref[i])+R4_ref[i]*3*E4_ref[i])));
+     
     }
 
   return A2;
@@ -209,7 +210,7 @@ vector <Double_t> Valeurs::A4(Double_t W0_ref, Double_t W90_ref, Double_t W180_r
     {
       Double_t B=(-49/8-21*E4_ref[i]/8-28*E2_ref[i]/8)/(-49/8-21*E4[i]/8-28*E2[i]/8);
       A4.push_back(A_ref[1]*(R4[i]*(7+4*E2[i])+R2[i]*4*E2[i])*(-49/8-21*E4_ref[i]/8-28*E2_ref[i]/8)/((R4_ref[i]*(7+4*E2_ref[i])+R2_ref[i]*4*E2_ref[i])*(-49/8-21*E4[i]/8-28*E2[i]/8)));
-      SqErrA4.push_back((A_ref[1]*A_ref[1]*B*B*(SqErrR4[i]*(7+4*E2[i])*(7+4*E2[i])+SqErrR2[i]*16*E2[i]*E2[i])-A4[i]*A4[i]*((7+4*E2_ref[i])*(7+4*E2_ref[i])*SqErrR4_ref[i]+16*E2_ref[i]*E2_ref[i]*SqErrR2_ref[i]))/((R4_ref[i]*(7+4*E2_ref[i])+R2_ref[i]*4*E2_ref[i])*(R4_ref[i]*(7+4*E2_ref[i])+R2_ref[i]*4*E2_ref[i])));
+      SqErrA4.push_back((A_ref[1]*A_ref[1]*B*B*(SqErrR4[i]*(7+4*E2[i])*(7+4*E2[i])+SqErrR2[i]*16*E2[i]*E2[i])+A4[i]*A4[i]*((7+4*E2_ref[i])*(7+4*E2_ref[i])*SqErrR4_ref[i]+16*E2_ref[i]*E2_ref[i]*SqErrR2_ref[i]))/((R4_ref[i]*(7+4*E2_ref[i])+R2_ref[i]*4*E2_ref[i])*(R4_ref[i]*(7+4*E2_ref[i])+R2_ref[i]*4*E2_ref[i])));
     }
 
   return A4;
@@ -229,6 +230,7 @@ vector<vector<Double_t> > Valeurs::Delta_2(Double_t W0_ref, Double_t W90_ref, Do
       ErrDelta2.push_back(vector<Double_t>(0));
       ErrDelta2[i].push_back(sqrt(SqErrA2[i]*((delta[i][0]+((F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))*((delta[i][0]+((F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))));
       ErrDelta2[i].push_back(sqrt(SqErrA2[i]*((delta[i][1]+(-(F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))*((delta[i][1]+(-(F2[0]-A2[i]+F2[2]-A2[i])/(2*sqrt(F2[1]*F2[1]-(F2[2]-A2[i])*(F2[0]-A2[i])))))/(F2[2]-A2[i]))));
+      
     }
   return delta;
 }

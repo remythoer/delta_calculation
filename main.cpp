@@ -7,11 +7,11 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-  map<int, Valeurs> valeurs_list;
-  map<int, vector<Double_t> > peak_list; 
-  map<int, vector<Double_t> > Err_list;
+  map<int, Valeurs> valeurs_list; /// \brief dictionnary with energy of the peak attached to all the coefficients needed to compute A and delta
+  map<int, vector<Double_t> > peak_list; /// \brief dictionnary with energy of the peak attached to the W coefficient of this peak
+  map<int, vector<Double_t> > Err_list; /// \brief same as previous with W error
   ifstream input_peak;
-  input_peak.open("peak_ref.txt");
+  input_peak.open("peak_ref.txt"); /// \brief input file with all the coeeficient to put in valeurs
   string ligne;
   if(input_peak)
     {  
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 
 	  Valeurs temp_val(ref, A2, A4, Q2_ref_0, Q2_ref_90, Q2_ref_180, Q2_ref_270, Q4_ref_0, Q4_ref_90, Q4_ref_180, Q4_ref_270, F2_1, F2_2, F2_3, F4_1, F4_2, F4_3, Q2_0, Q2_90, Q2_180, Q2_270, Q4_0, Q4_90, Q4_180, Q4_270);
 
-	  valeurs_list[peak]=temp_val;
+	  valeurs_list[peak]=temp_val; /// \brief fill the dictionnary with coefficients
       	}
     }
   else{cout<<"input_peak not open"<<endl;}
@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 	  W.push_back(W180);
 	  W.push_back(W270);
 	  
-	  peak_list[peak]=W; 
+	  peak_list[peak]=W; /// \brief fill the dictionnary with W
 	  
 	  getline(input_w, ligne);
 	  istringstream Erriss (ligne);
@@ -79,17 +79,17 @@ int main(int argc, char *argv[])
   input_w.close();
   
   ofstream output_delta;
-  output_delta.open("delta.dat");
+  output_delta.open("delta.dat"); /// \brief output file
   
-  for(map<int, vector<Double_t> >::iterator it=peak_list.begin(); it!=peak_list.end(); it++)
+  for(map<int, vector<Double_t> >::iterator it=peak_list.begin(); it!=peak_list.end(); it++) /// \brief for all the peak
     {
       Int_t peak=it->first;
-      map<int, Valeurs>::iterator search_peak = valeurs_list.find(peak);
+      map<int, Valeurs>::iterator search_peak = valeurs_list.find(peak);/// \brief if we want to compute its A and delta
       if(search_peak==valeurs_list.end()){continue;}
       else
 	{
 	  Int_t ref=valeurs_list[peak].get_ref();
-	  map<int, vector<Double_t> >::iterator search_ref = peak_list.find(ref);
+	  map<int, vector<Double_t> >::iterator search_ref = peak_list.find(ref); /// \brief find its reference peak (pure transition)
 	  if(search_ref==peak_list.end())
 	    {
 	      cout<<"no data for the reference peak "<<ref<<endl;
@@ -97,6 +97,7 @@ int main(int argc, char *argv[])
 	    }
 	  else
 	    {
+	      /// \brief take the corresponding W
 	      vector<Double_t> W;
 	      vector<Double_t> ErrW;
 	      vector<Double_t> W_ref;

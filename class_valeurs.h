@@ -40,16 +40,16 @@ Valeurs(Int_t ref, Double_t A2, Double_t A4, Double_t Q2_ref_0, Double_t Q2_ref_
 /// \return ref_peak
 Int_t get_ref() const;
 
-/// \return A2 coefficient 
+/// \return A2 coefficient and error for the 4 couples of detector
  vector <Double_t> A2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270, Double_t ErrW0_ref, Double_t ErrW90_ref, Double_t ErrW180_ref, Double_t ErrW270_ref, Double_t ErrW0, Double_t ErrW90, Double_t ErrW180, Double_t ErrW270, vector<Double_t> & SqErrA2) const;
 
-/// \return A4 coefficient 
+/// \return A4 coefficient and error for the 4 couples of detector
  vector <Double_t> A4(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270, Double_t ErrW0_ref, Double_t ErrW90_ref, Double_t ErrW180_ref, Double_t ErrW270_ref, Double_t ErrW0, Double_t ErrW90, Double_t ErrW180, Double_t ErrW270, vector<Double_t> & SqErrA4) const;
 
-/// \return delta2 +/- coefficient
+/// \return delta2 +/- coefficients and errors for the 4 couples of detector
  vector<vector<Double_t> > Delta_2(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270, Double_t ErrW0_ref, Double_t ErrW90_ref, Double_t ErrW180_ref, Double_t ErrW270_ref, Double_t ErrW0, Double_t ErrW90, Double_t ErrW180, Double_t ErrW270, vector<vector<Double_t> > & ErrDelta2) const;
 
-/// \return delta4 +/- coefficient
+/// \return delta4 +/- coefficients and errors for the 4 couples of detector
  vector<vector<Double_t> > Delta_4(Double_t W0_ref, Double_t W90_ref, Double_t W180_ref, Double_t W270_ref, Double_t W0, Double_t W90, Double_t W180, Double_t W270, Double_t ErrW0_ref, Double_t ErrW90_ref, Double_t ErrW180_ref, Double_t ErrW270_ref, Double_t ErrW0, Double_t ErrW90, Double_t ErrW180, Double_t ErrW270, vector<vector<Double_t> > & ErrDelta4) const;
 
 };

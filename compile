@@ -1,0 +1,6 @@
+g++ -g  `root-config --cflags` -o test main.cpp class_valeurs.cpp `root-config --libs` -lMinuit -lSpectrum
+
+
+
+
+
